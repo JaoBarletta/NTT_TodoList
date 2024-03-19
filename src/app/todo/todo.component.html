@@ -1,0 +1,48 @@
+<div class ="container-fluid"> 
+    <div class="col-12 d-flex justify-content-center">
+        <div class="col-4 todo-block">
+            <h4 class="text-center mb-3 todo-header">Todo List</h4>
+            <div class="col-12 d-flex alling-items-center justify-content-between">
+                <input class="col-8 todo-input" [(ngModel)] = "todoValue" placeholder="Enter text .. " type="text" name="text" >
+                <button type="submit" class="col-3 btn btn-primary"  (click)="insertValue()" >add</button>
+            </div>
+
+            <div class="todo-list mt-3">
+                <h5>Todo List</h5>
+                <div>
+                    @for (item of todoList; track $index) { 
+                        <div class="col-12 d-flex todo-single alling-center">
+                            <input type="checkbox" class="col-1 todo-checkbox" [(ngModel)]= "check" (click)="setcheck(item)">
+                            
+                            <span class="col-9">{{item}}</span>
+                            
+                            <button type="button" class="btn btn-outline-light text-danger col-1 del-btn " (click)="removerIndice($event,$index)">
+                                <i class="bi bi-trash3">
+                                </i>
+                            </button>
+                            
+        
+                        </div>
+
+                    }
+                
+                </div>
+            </div>
+
+            <div class="todo-list mt-3">
+                <h5>Finished List</h5>
+                @for (item of finishList; track $index) {
+                <div class="col-12 d-flex todo-single alling-center">
+                    <i class="bi bi-check"></i>
+                    <span class="col-9">{{item}}</span>
+                    <button type="button" class="btn btn-outline-light text-danger col-1 del-btn" (click)="removerIndice2($event,$index)">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+
+
+                </div>
+            }   
+            </div>
+        </div>
+    </div>
+</div>
